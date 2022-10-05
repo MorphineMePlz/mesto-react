@@ -11,6 +11,10 @@ function App() {
     setEditAvatarPopupOpen(true);
   }
 
+  function closeAllPopups() {
+    setEditAvatarPopupOpen("");
+  }
+
   return (
     <div className="body">
       <div className="page">
@@ -75,7 +79,7 @@ function App() {
           </div>
         </div>
 
-        <AvatarPopup isOpen={isEditAvatarPopupOpen} />
+        <AvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
 
         {/* <div className="popup popup_active popup_loader popup_style"></div> */}
       </div>
