@@ -1,4 +1,4 @@
-import { USER_TOKEN, BASE_URL } from "../utils/constants";
+import { USER_TOKEN, BASE_URL } from "./constants";
 
 class Api {
   constructor(setting) {
