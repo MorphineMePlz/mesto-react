@@ -7,7 +7,6 @@ import ProfilePopup from "./ProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
 import PopupConfirmation from "./PopupConfirmation";
 import ImagePopup from "./ImagePopup";
-import PopupLoader from "./PopupLoder";
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
@@ -62,7 +61,6 @@ function App() {
           isOpen={isEditProfilePopupOpen}
           onClose={closeAllPopups}
         />
-        <PopupLoader />
         <AvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closeAllPopups} />
       </div>
     </div>
