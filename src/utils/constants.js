@@ -8,6 +8,15 @@ export const selectorClasses = {
   template: ".gallery__template",
 };
 
+export const DEFAULT_CARD = {
+  createdAt: "",
+  likes: [],
+  link: "",
+  name: "",
+  owner: {},
+  _id: "",
+};
+
 export const classCreationSelectors = {
   userName: ".profile__title",
   userJob: ".profile__profession",

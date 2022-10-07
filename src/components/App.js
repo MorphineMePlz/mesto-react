@@ -7,15 +7,18 @@ import ProfilePopup from "./ProfilePopup";
 import AddPlacePopup from "./AddPlacePopup";
 import PopupConfirmation from "./PopupConfirmation";
 import ImagePopup from "./ImagePopup";
+import { DEFAULT_CARD } from "../utils/constants";
 
 function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = useState(false);
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = useState(false);
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = useState(false);
   const [isConfirmationPopupOpen, setConfirmationPopupOpen] = useState(false);
-  const [selectedCard, setSelectedCard] = useState(false);
+  const [isImagePopupOpen, setImagePopupOpen] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(DEFAULT_CARD);
 
   function handleCardClick(card) {
+    setImagePopupOpen(true);
     setSelectedCard(card);
   }
 
@@ -28,7 +31,8 @@ function App() {
     setEditProfilePopupOpen(false);
     setAddPlacePopupOpen(false);
     setConfirmationPopupOpen(false);
-    setSelectedCard(false);
+    setImagePopupOpen(false);
+    setSelectedCard(DEFAULT_CARD);
   }
 
   function handleEditProfileClick() {
@@ -50,7 +54,11 @@ function App() {
           onHandleCardClick={handleCardClick}
         />
         <Footer />
-        <ImagePopup onClose={closeAllPopups} card={selectedCard} />
+        <ImagePopup
+          onClose={closeAllPopups}
+          card={selectedCard}
+          isOpen={isImagePopupOpen}
+        />
 
         <PopupConfirmation
           isOpen={isConfirmationPopupOpen}

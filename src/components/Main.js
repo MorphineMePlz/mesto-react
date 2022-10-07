@@ -56,8 +56,12 @@ function Main({ onEditAvatar, onEditProfile, onAddPlace, onHandleCardClick }) {
       <section className="gallery">
         <ul className="gallery__list">
           {cards.length > 0 &&
-            cards.map((card, index) => (
-              <Card card={card} key={index} onCardClick={onHandleCardClick} />
+            cards.map((card) => (
+              <Card
+                card={card}
+                key={card._id}
+                onCardClick={onHandleCardClick}
+              />
             ))}
         </ul>
       </section>
