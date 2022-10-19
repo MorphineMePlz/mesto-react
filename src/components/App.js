@@ -18,8 +18,8 @@ function App() {
   const [selectedCard, setSelectedCard] = useState(DEFAULT_CARD);
 
   function handleCardClick(card) {
-    setImagePopupOpen(true);
     setSelectedCard(card);
+    setImagePopupOpen(true);
   }
 
   function handleEditAvatarClick() {
