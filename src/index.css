@@ -36,6 +36,7 @@
 @import url(./blocks/gallery/__like-count/gallery__like-count.css);
 @import url(./blocks/gallery/__like-container/gallery__like-container.css);
 @import url(./blocks/gallery/__delete-button/_hidden/gallery__delete-button_hidden.css);
+@import url(./blocks/gallery/__delete-button/_visible/gallery__delete-button_visible.css);
 
 /* footer */
 

@@ -70,6 +70,13 @@ class Api {
     }).then((res) => this.handelResponse(res));
   }
 
+  changeLikeCardStatus(cardId, isNotLiked) {
+    return fetch(`${this._address}/cards/${cardId}/likes`, {
+      method: isNotLiked ? "PUT" : "DELETE",
+      headers: this._headers,
+    }).then((res) => this.handelResponse(res));
+  }
+
   changeAvatar(avatar) {
     return fetch(`${this._address}/users/me/avatar`, {
       method: "PATCH",
