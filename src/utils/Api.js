@@ -38,12 +38,12 @@ class Api {
     }).then((res) => this.handelResponse(res));
   }
 
-  addNewCard({ place, link }) {
+  addNewCard({ name, link }) {
     return fetch(`${this._address}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
-        name: place,
+        name,
         link,
       }),
     }).then((res) => this.handelResponse(res));

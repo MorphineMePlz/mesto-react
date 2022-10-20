@@ -9,7 +9,6 @@ import PopupConfirmation from "./PopupConfirmation";
 import ImagePopup from "./ImagePopup";
 import { DEFAULT_CARD } from "../utils/constants";
 import { api } from "../utils/Api";
-// import loader from "../images/loader.svg";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 
 function App() {
@@ -74,12 +73,23 @@ function App() {
   }
 
   function handleUpdateAvatar(newData) {
-    console.log(newData);
     api
       .changeAvatar(newData)
       .then((userData) => {
         console.log(userData);
         setCurrentUser(userData);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function handleAddPlaceSubmit(newData) {
+    api
+      .addNewCard(newData)
+      .then((newCard) => {
+        setCards([newCard, ...cards]);
         closeAllPopups();
       })
       .catch((err) => {
@@ -141,6 +151,7 @@ function App() {
           <AddPlacePopup
             isOpen={isAddPlacePopupOpen}
             onClose={closeAllPopups}
+            onAddPlace={handleAddPlaceSubmit}
           />
           <ProfilePopup
             isOpen={isEditProfilePopupOpen}
