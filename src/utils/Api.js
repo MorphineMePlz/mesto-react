@@ -27,13 +27,13 @@ class Api {
     }).then((res) => this.handelResponse(res));
   }
 
-  editUserInformation({ job, name }) {
+  editUserInformation({ about, name }) {
     return fetch(`${this._address}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name,
-        about: job,
+        about: about,
       }),
     }).then((res) => this.handelResponse(res));
   }
@@ -77,12 +77,12 @@ class Api {
     }).then((res) => this.handelResponse(res));
   }
 
-  changeAvatar(avatar) {
+  changeAvatar(data) {
     return fetch(`${this._address}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
-        avatar,
+        avatar: data.avatar,
       }),
     }).then((res) => this.handelResponse(res));
   }

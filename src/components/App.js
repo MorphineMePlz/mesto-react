@@ -61,6 +61,32 @@ function App() {
       });
   }
 
+  function handleUpdateUser(newData) {
+    api
+      .editUserInformation(newData)
+      .then((userData) => {
+        setCurrentUser(userData);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  function handleUpdateAvatar(newData) {
+    console.log(newData);
+    api
+      .changeAvatar(newData)
+      .then((userData) => {
+        console.log(userData);
+        setCurrentUser(userData);
+        closeAllPopups();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   function handleCardClick(card) {
     setSelectedCard(card);
     setImagePopupOpen(true);
@@ -119,10 +145,12 @@ function App() {
           <ProfilePopup
             isOpen={isEditProfilePopupOpen}
             onClose={closeAllPopups}
+            onUpdateUser={handleUpdateUser}
           />
           <AvatarPopup
             isOpen={isEditAvatarPopupOpen}
             onClose={closeAllPopups}
+            onUpdateAvatar={handleUpdateAvatar}
           />
         </div>
       </div>

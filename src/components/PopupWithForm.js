@@ -18,7 +18,7 @@ function PopupWithForm({
           onSubmit={onSubmit}
         >
           {children}
-          <button type="submit" className="popup__submit-button" disabled>
+          <button type="submit" className="popup__submit-button">
             {textButton}
           </button>
         </form>
